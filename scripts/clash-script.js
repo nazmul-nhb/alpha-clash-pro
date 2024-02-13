@@ -7,17 +7,17 @@ function play(){
 }
  */
 
-// reusable function
-function hideElementByID(id) {
-    const element = document.getElementById(id);
-    element.classList.add('hidden');
+function continueGame() {
+    // 1. generate a random alphabet
+    const alphabet = getARandomLetter();
+    const currentAlphabet = document.getElementById('current-letter');
+    currentAlphabet.innerText = alphabet;
+    setBgColorById(alphabet);
 }
 
-function showElementByID(id) {
-    const element = document.getElementById(id);
-    element.classList.remove('hidden');
-}
-function play(){
+function play() {
     hideElementByID('home-screen');
     showElementByID('play-ground');
+    continueGame();
 }
+

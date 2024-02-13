@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -9,21 +9,29 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Custom Color -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="styles/clash-styles.css">
 </head>
 
-<body>
+<body class="font-poppins">
+    <main class="bg-[#010313] min-h-screen bg-[url(images/background.png)] bg-no-repeat bg-center">
+        <!-- Home Screen -->
+        <section id="home-screen" class="text-white min-h-screen flex flex-col justify-center items-center">
+            <div class="flex flex-col items-center gap-10">
+                <h1 class="text-7xl font-anton uppercase">Alphabet Clash Pro</h1>
+                <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+                <button class="btn bg-white text-black">Play Now</button>
+            </div>
+        </section>
 
+        <section id="play-ground">
+
+        </section>
+
+        <section id="score">
+
+        </section>
+    </main>
 </body>
 
 </html>

@@ -15,9 +15,27 @@ function setBgColorById(id) {
     element.classList.add('bg-orange-400');
 }
 
-function removeBgColorById(id){
+function removeBgColorById(id) {
     const element = document.getElementById(id);
     element.classList.remove('bg-orange-400');
+}
+
+function getTextValueById(id) {
+    const element = document.getElementById(id);
+    const elementValueString = element.innerText;
+    const elementValue = parseInt(elementValueString);
+    return elementValue;
+}
+
+function setTextValueById(id, value) {
+    const element = document.getElementById(id);
+    element.innerText = value;
+}
+
+function getElementTextByID(id){
+    const element = document.getElementById(id);
+    const text = element.innerText;
+    return text;
 }
 
 function getARandomLetter() {

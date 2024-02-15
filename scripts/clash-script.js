@@ -45,6 +45,14 @@ function keyboardButtonPress(keyboard) {
         // display score
         setTextValueById('score-update', updatedScore);
 
+        // Check for gaining a life after every 10 points
+        if (updatedScore % 10 === 0) {
+            const currentLife = getTextValueById('life-update');
+            const updatedLife = currentLife + 1;
+            // display life
+            setTextValueById('life-update', updatedLife);
+        }
+        
         // start a new round
         removeBgColorById(playerPressed);
         continueGame();

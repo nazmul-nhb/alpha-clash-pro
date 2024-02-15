@@ -1,15 +1,15 @@
+/* 
+function play(){
+    const home = document.getElementById('home-screen');
+    home.classList.add('hidden');
+    const playGround = document.getElementById('play-ground');
+    playGround.classList.remove('hidden');
+}
+ */
 function keyboardButtonPress(keyboard) {
     const playerPressed = keyboard.key;
-    const homeScreen = document.getElementById('home-screen');
-    const playGround = document.getElementById('play-ground');
-    const scoreBoard = document.getElementById('scoreboard');
+    // console.log('player pressed', playerPressed);
 
-    if (playerPressed === 'Enter' && homeScreen.classList.contains('hidden') === false) {
-        play();
-    }
-    if (playerPressed === 'Enter' && scoreBoard.classList.contains('hidden') === false) {
-        play();
-    }
     // stop game
     if (playerPressed === 'Escape') {
         gameOver();
@@ -28,9 +28,20 @@ function keyboardButtonPress(keyboard) {
 
     // check if matched
     if (playerPressed === expectedLetter) {
+        // console.log('you got a point');
+        /*         
+                // update score
+                const currentScoreElement = document.getElementById('score-update');
+                const currentScoreString = document.getElementById('score-update').innerText;
+                const currentScore = parseInt(currentScoreString);
+                const updatedScore = currentScore + 1;
+                // display score
+                currentScoreElement.innerText = updatedScore;
+         */
+        // -----------------------------------------------------------------------
+
         const currentScore = getTextValueById('score-update');
         const updatedScore = currentScore + 1;
-
         // display score
         setTextValueById('score-update', updatedScore);
 
@@ -38,7 +49,6 @@ function keyboardButtonPress(keyboard) {
         if (updatedScore % 10 === 0) {
             const currentLife = getTextValueById('life-update');
             const updatedLife = currentLife + 1;
-
             // display life
             setTextValueById('life-update', updatedLife);
         }
@@ -47,10 +57,16 @@ function keyboardButtonPress(keyboard) {
         removeBgColorById(playerPressed);
         continueGame();
     }
-    else if (playerPressed === 'Enter' && playGround.classList.contains('hidden') === false) {
-
-    }
     else {
+        // console.log('you missed');
+        /*         
+                const currentLifeElement = document.getElementById('life-update');
+                const currentLifeString = currentLifeElement.innerText;
+                const currentLife = parseInt(currentLifeString);
+                const updatedLife = currentLife - 1;
+                // display life
+                currentLifeElement.innerText = updatedLife;
+        */
         // setBgColorById(playerPressed);
         const currentLife = getTextValueById('life-update');
         const updatedLife = currentLife - 1;
@@ -79,7 +95,6 @@ function play() {
     // hide everything but playground
     hideElementByID('home-screen');
     hideElementByID('scoreboard');
-
     showElementByID('play-ground');
 
     // reset score and life
@@ -91,7 +106,6 @@ function play() {
 
 function gameOver() {
     hideElementByID('play-ground');
-    hideElementByID('home-screen')
     showElementByID('scoreboard');
     // update final score
     const finalScore = getTextValueById('score-update');

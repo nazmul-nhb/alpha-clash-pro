@@ -4,12 +4,13 @@ function keyboardButtonPress(keyboard) {
     const playGround = document.getElementById('play-ground');
     const scoreBoard = document.getElementById('scoreboard');
 
-    if (playerPressed === 'Enter' && homeScreen.classList.contains('hidden') === false) {
+    // Enter Key Functionality to Play the Game from Home & Game Over Screen
+    if (playerPressed === 'Enter' &&
+        (homeScreen.classList.contains('hidden') === false ||
+            scoreBoard.classList.contains('hidden') === false)) {
         play();
     }
-    if (playerPressed === 'Enter' && scoreBoard.classList.contains('hidden') === false) {
-        play();
-    }
+
     // stop game
     if (playerPressed === 'Escape') {
         gameOver();
@@ -47,9 +48,11 @@ function keyboardButtonPress(keyboard) {
         removeBgColorById(playerPressed);
         continueGame();
     }
-    else if (playerPressed === 'Enter' && playGround.classList.contains('hidden') === false) {
 
+    else if (playerPressed === 'Enter' &&
+        playGround.classList.contains('hidden') === false) {
     }
+
     else {
         // setBgColorById(playerPressed);
         const currentLife = getTextValueById('life-update');
